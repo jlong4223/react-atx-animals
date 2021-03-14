@@ -7,7 +7,9 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import AdoptPage from "./pages/AdoptPage";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 
 const App = (props) => {
@@ -25,7 +27,7 @@ const App = (props) => {
   }
 
   return (
-    <div className="App">
+    <div>
       <Header logout={handleLogout} user={userState.user} />
       <Switch>
         <Route exact path="/" render={() => <HomePage {...props} />} />
@@ -41,9 +43,10 @@ const App = (props) => {
             <RegisterPage register={handleRegisterOrLogin} {...props} />
           )}
         />
+        <Route exact path="/adopt" render={() => <AdoptPage />} />
         <Route component={NotFound} />
       </Switch>
-      <footer>Footer</footer>
+      <Footer />
     </div>
   );
 };

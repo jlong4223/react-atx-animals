@@ -8,3 +8,5 @@
 - FontAwesome
 - Styled Components
 - React-Router
+- Google Forms
+- Node.js, MongoDB, Express.js Backend
