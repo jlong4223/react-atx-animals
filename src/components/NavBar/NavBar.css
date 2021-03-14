@@ -1,0 +1,23 @@
+#navHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid red; */
+  height: 50px;
+  background-color: #7c67b2;
+}
+
+.navLink {
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 50px;
+  width: 160px;
+}
+
+.navLink:hover {
+  color: #fff;
+  background-color: #5db102;
+}
