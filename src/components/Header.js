@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import NavBar from "./NavBar/NavBar";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -7,17 +8,32 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   /* border: 1px solid green; */
   width: 100%;
-  height: 180px;
+  height: 160px;
 
   #logo {
     width: 250px;
-    margin-top: -25px;
+    margin-top: -40px;
   }
 
   #links {
+    display: flex;
+    flex-direction: row-reverse;
     align-items: flex-start;
+    /* flex-wrap: wrap; */
     margin-top: 15px;
-    margin-right: 30px;
+    /* border: 1px solid red; */
+    height: 50px;
+    padding-right: 30px;
+  }
+
+  #topIcons {
+    display: flex;
+    padding-right: 30px;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    height: 50px;
+    /* border: 1px solid red; */
   }
 `;
 
@@ -36,17 +52,58 @@ const Header = (props) => {
       <Link to="/login">LOGIN</Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <Link to="/register">REGISTER</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;
     </div>
   );
 
   return (
-    <StyledHeader>
-      <Link to="/">
-        <img id="logo" src="https://i.imgur.com/uXgHNzN.png" alt="logo" />
-      </Link>
-      <>{authLinks}</>
-    </StyledHeader>
+    <>
+      <StyledHeader>
+        <Link to="/">
+          <img id="logo" src="https://i.imgur.com/uXgHNzN.png" alt="logo" />
+        </Link>
+        <div>
+          <>{authLinks}</>
+          <div id="topIcons">
+            <a href="tel:567-259-7413">(567)-259-7413</a>
+            <div>
+              <a
+                href="https://www.linkedin.com/in/jaredlong-95/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="fab fa-linkedin fa-2x"></i>
+              </a>
+              &nbsp;&nbsp;
+              <a
+                href="https://github.com/jlong4223"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="fab fa-github-square fa-2x"></i>
+              </a>
+              &nbsp;&nbsp;
+              <a
+                href="https://github.com/jlong4223"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fab fa-facebook-square fa-2x"></i>
+              </a>
+              &nbsp;&nbsp;
+              <a
+                href="https://github.com/jlong4223"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fab fa-instagram-square fa-2x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </StyledHeader>
+      <NavBar />
+    </>
   );
 };
 
