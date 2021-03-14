@@ -7,7 +7,7 @@ const NavBar = (props) => {
       <Link className="navLink" to="">
         ABOUT US
       </Link>
-      <Link className="navLink" to="">
+      <Link className="navLink" to="/adopt">
         ADOPT A PET
       </Link>
       <Link className="navLink" to="">
