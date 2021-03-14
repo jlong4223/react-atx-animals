@@ -8,11 +8,11 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   /* border: 1px solid green; */
   width: 100%;
-  height: 160px;
+  height: 140px;
 
   #logo {
-    width: 250px;
-    margin-top: -40px;
+    width: 230px;
+    margin-top: -45px;
   }
 
   #links {
@@ -65,7 +65,9 @@ const Header = (props) => {
         <div>
           <>{authLinks}</>
           <div id="topIcons">
-            <a href="tel:567-259-7413">(567)-259-7413</a>
+            <a href="tel:567-259-7413">
+              <h6>(567)-259-7413</h6>
+            </a>
             <div>
               <a
                 href="https://www.linkedin.com/in/jaredlong-95/"
