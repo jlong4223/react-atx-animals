@@ -6,6 +6,8 @@ import { getUser, logout } from "./services/UserService";
 import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import Header from "./components/Header";
 import NotFound from "./components/NotFound";
 
 const App = (props) => {
@@ -23,11 +25,22 @@ const App = (props) => {
   }
 
   return (
-    <div className="App page">
-      <header>Hello world</header>
+    <div className="App">
+      <Header logout={handleLogout} user={userState.user} />
       <Switch>
         <Route exact path="/" render={() => <HomePage {...props} />} />
-        <Route exact path="/login" render={() => <LoginPage {...props} />} />
+        <Route
+          exact
+          path="/login"
+          render={() => <LoginPage login={handleRegisterOrLogin} {...props} />}
+        />
+        <Route
+          exact
+          path="/register"
+          render={() => (
+            <RegisterPage register={handleRegisterOrLogin} {...props} />
+          )}
+        />
         <Route component={NotFound} />
       </Switch>
       <footer>Footer</footer>

@@ -27,3 +27,11 @@ code {
   margin-bottom: 20px; */
   /* border: 1px solid red; */
 }
+
+a {
+  color: #000;
+}
+a:hover {
+  color: #000;
+  text-decoration: none;
+}
