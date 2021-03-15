@@ -50,9 +50,15 @@ const NavBar = (props) => {
               <Link to="/adopt">Adoption Form</Link>
             </DropdownItem>
             <DropdownItem divider />
-            <DropdownItem className="drop" disabled>
-              Action
-            </DropdownItem>
+            {props.user && props.user.admin === true ? (
+              <DropdownItem className="drop">
+                <Link to="/addpet">Action</Link>
+              </DropdownItem>
+            ) : (
+              <DropdownItem className="drop" disabled>
+                Action
+              </DropdownItem>
+            )}
             <DropdownItem divider />
             <DropdownItem className="drop">
               <Link to="/pets">Pets</Link>

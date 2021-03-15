@@ -104,7 +104,7 @@ const Header = (props) => {
           </div>
         </div>
       </StyledHeader>
-      <NavBar />
+      <NavBar {...props} />
     </>
   );
 };
