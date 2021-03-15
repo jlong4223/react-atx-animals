@@ -1,9 +1,10 @@
-#navHeader {
+#innerHeader {
   display: flex;
   justify-content: space-around;
   align-items: center;
   /* border: 1px solid red; */
   height: 50px;
+  width: 100%;
   background-color: #7c67b2;
 }
 
@@ -21,8 +22,15 @@
   color: #fff;
   background-color: #5db102;
 }
+.sticky-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+}
 
-.sticky {
+.sticky .sticky-inner {
   position: fixed;
   top: 0;
   width: 100%;
