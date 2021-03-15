@@ -9,4 +9,6 @@
 - Styled Components
 - React-Router
 - Google Forms
+- jsonwebtoken
 - Node.js, MongoDB, Express.js Backend
+- Reactstrap

@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AdoptPage from "./pages/AdoptPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
@@ -42,6 +43,11 @@ const App = (props) => {
           render={() => (
             <RegisterPage register={handleRegisterOrLogin} {...props} />
           )}
+        />
+        <Route
+          exact
+          path="/contact"
+          render={() => <ContactPage {...props} />}
         />
         <Route exact path="/adopt" render={() => <AdoptPage />} />
         <Route component={NotFound} />

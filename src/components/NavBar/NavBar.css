@@ -21,3 +21,10 @@
   color: #fff;
   background-color: #5db102;
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
