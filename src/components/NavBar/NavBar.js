@@ -16,6 +16,10 @@ const NavBar = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen(!dropdownOpen);
 
+  // employee nav dropdown
+  const [dropdownOpenEmp, setDropdownEmpOpen] = useState(false);
+  const toggleEmp = () => setDropdownEmpOpen(!dropdownOpenEmp);
+
   // sticky header state
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
@@ -30,6 +34,7 @@ const NavBar = (props) => {
       window.removeEventListener("scroll", () => handleScroll);
     };
   }, []);
+
   return (
     <header className={`sticky-wrapper${isSticky ? " sticky" : ""}`} ref={ref}>
       <header id="innerHeader" className="sticky-inner">
@@ -48,16 +53,6 @@ const NavBar = (props) => {
                 <Link to="/adopt">Adoption Form</Link>
               </DropdownItem>
               <DropdownItem divider />
-              {props.user && props.user.admin === true ? (
-                <DropdownItem className="drop">
-                  <Link to="/addlisting">Action</Link>
-                </DropdownItem>
-              ) : (
-                <DropdownItem className="drop" disabled>
-                  Action
-                </DropdownItem>
-              )}
-              <DropdownItem divider />
               <DropdownItem className="drop">
                 <Link to="/pets">Pets</Link>
               </DropdownItem>
@@ -67,14 +62,6 @@ const NavBar = (props) => {
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
-          <NavItem>
-            <NavLink href="#"></NavLink>
-          </NavItem>
-          {/* <NavItem>
-          <NavLink disabled href="#">
-            Disabled Link
-          </NavLink>
-        </NavItem> */}
         </Nav>
         <Link className="navLink" to="/contact">
           CONTACT US
@@ -82,6 +69,28 @@ const NavBar = (props) => {
         <Link className="navLink" to="">
           RESOURCES
         </Link>
+
+        {/* Employee Drop down */}
+        {props.user && props.user.admin === true ? (
+          <Nav pills>
+            <Dropdown nav isOpen={dropdownOpenEmp} toggle={toggleEmp}>
+              <DropdownToggle nav caret className="navLink">
+                EMPLOYEE
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem className="drop">
+                  <Link to="/addlisting">Add Listing</Link>
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem className="drop">
+                  <Link to="/tasks">Open Tasks</Link>
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </Nav>
+        ) : (
+          <></>
+        )}
       </header>
     </header>
   );
