@@ -64,7 +64,6 @@ const LoginForm = (props) => {
         </div>
         <button
           className="btn btn-sm btn-primary"
-          disabled
           disabled={!formValid()}
           style={{ marginTop: 10 }}
         >
