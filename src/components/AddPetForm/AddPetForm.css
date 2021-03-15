@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+.fieldset {
+  /* height: 501px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 5px 1px 15px #798389;
+  width: 300px;
+}
+
+.fieldset input,
+textarea,
+select {
+  width: 260px;
+}
+.fieldset select {
+  height: 30px;
+}
+.fieldset textarea {
+  max-height: 88px;
+  min-height: 88px;
+}
+
+.sidebar {
+  width: 300px;
+  height: 505px;
+  margin-top: 17.5px;
+  border-radius: 5px 0 0 5px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("https://images.unsplash.com/photo-1552053831-71594a27632d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=624&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: -5px 1px 15px #799898;
+}
+
+legend {
+  background-color: #7c9d9d;
+  color: white;
+  width: 250px;
+  border-radius: 5px;
+  text-align: center;
+}
