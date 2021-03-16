@@ -1,0 +1,19 @@
+.Card__base {
+  box-sizing: border-box;
+  width: 300px;
+  margin: 0 20px 20px 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.996);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+button {
+  width: 75%;
+}
