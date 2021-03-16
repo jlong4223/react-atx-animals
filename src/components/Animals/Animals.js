@@ -1,3 +1,4 @@
+import EditAnimalForm from "./EditAnimals";
 import "./Animals.css";
 
 const Animals = (props) => {
@@ -10,13 +11,22 @@ const Animals = (props) => {
         <p>{animal.weight}lbs</p>
         <img src={animal.picture} alt="pic" width="125" />
         <br />
-
-        {/* TODO the below function is only for req.user.admin === true */}
-        {/* <div id="container">
-            <button onClick={() => props.deleteAnimal(animal)}>Delete</button>
-            <button onClick={toggleForm}>Edit</button>
-          </div> */}
+        {/* onclick have a modal pop up with bio or all info outside of name, pic */}
+        {props.user && props.user.admin === true ? (
+          <div id="container">
+            <button
+              className="btn btn-danger"
+              onClick={() => props.delete(animal)}
+            >
+              Delete
+            </button>
+            {/* <button onClick={toggleForm}>Edit</button> */}
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
+      <EditAnimalForm animal={props.animal} {...props} />
     </div>
   );
 };
