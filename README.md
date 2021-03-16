@@ -1,5 +1,7 @@
 # ATX Animals Client
 
+This is an application that represents a mock animal shelter. There is an adoption form, protected employee routes and functions based on an admin user, as well as a contact form, and adoptable pets!
+
 ### Technologies Used:
 
 - React.js
@@ -12,3 +14,9 @@
 - jsonwebtoken
 - Node.js, MongoDB, Express.js Backend
 - Reactstrap
+
+### Future Enhancements
+
+- update mobile sizing styles
+- cloudinary to upload images
+- have uploaded img show before upload
