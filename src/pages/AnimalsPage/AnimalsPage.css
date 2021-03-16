@@ -15,3 +15,12 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+#adoptDets {
+  display: flex;
+  flex-direction: column;
+}
+
+#adoptionLink {
+  border-bottom: 1px solid black;
+}
