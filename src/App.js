@@ -10,7 +10,8 @@ import RegisterPage from "./pages/RegisterPage";
 import AdoptPage from "./pages/AdoptPage";
 import AddPetPage from "./pages/AddPetPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
-import AnimalsPage from "./pages/AnimalsPage";
+import AnimalsPage from "./pages/AnimalsPage/AnimalsPage";
+import TasksPage from "./pages/TasksPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
@@ -62,7 +63,22 @@ const App = (props) => {
             )
           }
         />
-        <Route exact path="/pets" render={() => <AnimalsPage {...props} />} />
+        <Route
+          exact
+          path="/tasks"
+          render={() =>
+            userState.user && userState.user.admin === true ? (
+              <TasksPage {...props} />
+            ) : (
+              <Redirect to="/" />
+            )
+          }
+        />
+        <Route
+          exact
+          path="/pets"
+          render={() => <AnimalsPage user={userState.user} {...props} />}
+        />
         <Route exact path="/adopt" render={() => <AdoptPage />} />
         <Route component={NotFound} />
       </Switch>
