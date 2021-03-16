@@ -17,3 +17,11 @@
 /* button {
   width: 75%;
 } */
+
+.delete-edit button {
+  margin: 0 5px;
+}
+
+.cancel-update {
+  width: 60%;
+}
