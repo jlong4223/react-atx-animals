@@ -15,7 +15,11 @@ const Animals = (props) => {
       {editFormVisible ? (
         <>
           <div className="Card__base">
-            <EditAnimalForm animal={props.animal} {...props} />
+            <EditAnimalForm
+              animal={props.animal}
+              toggleForm={toggleForm}
+              {...props}
+            />
             <div>
               <button className="btn btn-secondary" onClick={toggleForm}>
                 Cancel

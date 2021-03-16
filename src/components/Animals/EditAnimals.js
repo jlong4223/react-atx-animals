@@ -36,9 +36,15 @@ const EditAnimalForm = (props) => {
     }));
   }
 
-  async function handleUpdateAnimal(event) {
-    if (props.animal) editState._id = props.animal._id;
-    await props.update(event, editState);
+  async function handleUpdateAnimal(e, event) {
+    // if (props.animal) editState._id = props.animal._id;
+    e.preventDefault();
+    try {
+      await props.update(event, editState);
+      props.toggleForm();
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
