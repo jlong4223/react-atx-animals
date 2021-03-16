@@ -140,8 +140,17 @@ const AddPetForm = (props) => {
             </div>
             <div className="form-group">
               <div className="col-sm-12">
-                <input
+                {/* TODO fix the upload save issue */}
+                {/* <input
                   type="file"
+                  placeholder="Image URL"
+                  name="picture"
+                  value={animalState.picture}
+                  onChange={handleChange}
+                  required
+                /> */}
+                <input
+                  type="text"
                   placeholder="Image URL"
                   name="picture"
                   value={animalState.picture}
