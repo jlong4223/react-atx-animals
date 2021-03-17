@@ -1,3 +1,4 @@
+import { getToken } from "./TokenService";
 const BASE_URL = "http://localhost:3001/";
 
 export function fetchAnimalData() {
@@ -7,7 +8,11 @@ export function fetchAnimalData() {
 export function addAnimalData(animal) {
   return fetch(BASE_URL + "animals", {
     method: "POST",
-    headers: new Headers({ "Content-Type": "application/json" }),
+    headers: new Headers({
+      "Content-Type": "application/json",
+      // added authorization header to send the token with the req
+      Authorization: "Bearer " + getToken(),
+    }),
     body: JSON.stringify(animal),
   }).then((res) => res.json());
 }
@@ -18,6 +23,8 @@ export function deleteAnimal(animal) {
     headers: {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
+      // added authorization header to send the token with the req
+      Authorization: "Bearer " + getToken(),
     },
   });
 }
@@ -29,6 +36,8 @@ export function editAnimal(event, animal) {
     headers: {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
+      // added authorization header to send the token with the req
+      Authorization: "Bearer " + getToken(),
     },
   });
 }
