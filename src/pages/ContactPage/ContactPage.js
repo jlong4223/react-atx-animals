@@ -6,6 +6,7 @@ const StyledMain = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex-grow: 1;
   margin-top: 50px;
 `;
 
