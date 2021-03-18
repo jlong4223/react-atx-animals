@@ -20,6 +20,18 @@ export function addTaskData(task) {
   }).then((res) => res.json());
 }
 
+export function deleteTask(task) {
+  return fetch(BASE_URL + `tasks/${task._id}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+      // added authorization header to send the token with the req
+      // Authorization: "Bearer " + getToken(),
+    },
+  });
+}
+
 export function fetchOpenTasks() {
   return fetch(BASE_URL + "tasks/open").then((res) => res.json());
 }
