@@ -4,8 +4,11 @@ import {
   fetchOpenTasks,
   fetchCompletedTasks,
   fetchPendingTasks,
+  deleteTask,
+  editTask,
 } from "../../services/TaskService";
 import "./Tasks.css";
+import EditTaskForm from "./EditTaskForm";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -29,9 +32,6 @@ const Tasks = (props) => {
     const data = await fetchOpenTasks();
     setTaskState(data);
   }
-  useEffect(() => {
-    getData();
-  }, []);
 
   /* ------ Pending Tasks ------- */
   const [pendingTasksState, setPendingTasksState] = useState([{}]);
@@ -40,9 +40,6 @@ const Tasks = (props) => {
     const data = await fetchPendingTasks();
     setPendingTasksState(data);
   }
-  useEffect(() => {
-    getPendingData();
-  }, []);
 
   /* ------ Completed Tasks ------- */
   const [closedTasks, setClosedtasks] = useState([{}]);
@@ -52,56 +49,206 @@ const Tasks = (props) => {
     setClosedtasks(data);
   }
   useEffect(() => {
-    getCompletedData();
+    getCompletedData() && getPendingData() && getData();
   }, []);
 
-  //   have a handleClick that changes the task status to pending and have a select on the task status area
+  /* -------- Delete Tasks --------*/
 
+  async function handleDelete(task) {
+    await deleteTask(task)
+      .then(() => {
+        getData() && getPendingData() && getCompletedData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  /*--------- Edit tasks ----------*/
+  async function updateTheTask(event, animal) {
+    await editTask(event, animal)
+      .then(() => {
+        getData() && getPendingData() && getCompletedData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  /* ------- form-toggles -------- */
+  const [editFormVisible, setEditFormVisible] = useState(false);
+  const [editPendFormVisible, setPendFormVisible] = useState(false);
+  const [editDoneFormVisible, setDoneFormVisible] = useState(false);
+
+  function toggleForm() {
+    setEditFormVisible(!editFormVisible);
+  }
+  function togglePendingForm() {
+    setPendFormVisible(!editPendFormVisible);
+  }
+  function toggleEditDoneForm() {
+    setDoneFormVisible(!editDoneFormVisible);
+  }
+  //   TODO move the mapping of each styled div to taskpage or move the content inside styled div to an even lower component?
+  //   TODO figure out form toggle and why it toggles all of them
+  //   TODO add modal for details
   return (
     <div id="topDiv" style={{ display: "flex" }}>
       <div style={{ width: 300, margin: 20 }}>
         <h3>Open Tasks</h3>
         {openTaskState
           .map((task, idx) => (
-            <StyledDiv>
-              <h6>Name: {task.personName}.</h6>
-              <h6>Pet: {task.animalName} </h6>
-              <h6>Contact: {task.contactInfo}</h6>
-              <h6>Status: {task.status === "" ? <> Open</> : <></>}</h6>
-              <button className="btn btn-secondary">Edit</button>
-              {/* Use a modal to show more details */}
-              <button className="btn btn-info">View Details</button>
+            <StyledDiv key={idx}>
+              {editFormVisible ? (
+                <>
+                  <div>
+                    <EditTaskForm
+                      toggleForm={toggleForm}
+                      task={task}
+                      update={updateTheTask}
+                      getData={getData}
+                      getPendingData={getPendingData}
+                      getCompletedData={getCompletedData}
+                      {...props}
+                    />
+                    <div>
+                      <button
+                        className="btn btn-secondary"
+                        onClick={toggleForm}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h6>Name: {task.personName}.</h6>
+                  <h6>Pet: {task.animalName} </h6>
+                  <h6>Contact: {task.contactInfo}</h6>
+                  <h6>Status: {task.status}</h6>
+                  <button className="btn btn-secondary" onClick={toggleForm}>
+                    Edit
+                  </button>
+
+                  <button className="btn btn-info">View Details</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(task)}
+                  >
+                    Delete
+                  </button>
+                </>
+              )}
             </StyledDiv>
           ))
           .reverse()}
       </div>
       <div style={{ width: 300, margin: 20 }}>
         <h3>Pending Tasks</h3>
-        {pendingTasksState.map((task, idx) => (
-          <StyledDiv>
-            <h6>Name: {task.personName}.</h6>
-            <h6>Pet: {task.animalName} </h6>
-            <h6>Contact: {task.contactInfo}</h6>
-            <h6>Status: {task.status}</h6>
-            <button className="btn btn-secondary">Edit</button>
-            {/* Use a modal to show more details */}
-            <button className="btn btn-info">View Details</button>
-          </StyledDiv>
-        ))}
+        {pendingTasksState
+          .map((task, idx) => (
+            <StyledDiv key={idx}>
+              {editPendFormVisible ? (
+                <>
+                  <div>
+                    <EditTaskForm
+                      toggleForm={togglePendingForm}
+                      task={task}
+                      update={updateTheTask}
+                      getData={getData}
+                      getPendingData={getPendingData}
+                      getCompletedData={getCompletedData}
+                      {...props}
+                    />
+                    <div>
+                      <button
+                        className="btn btn-secondary"
+                        onClick={togglePendingForm}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h6>Name: {task.personName}.</h6>
+                  <h6>Pet: {task.animalName} </h6>
+                  <h6>Contact: {task.contactInfo}</h6>
+                  <h6>Status: {task.status}</h6>
+                  <button
+                    className="btn btn-secondary"
+                    onClick={togglePendingForm}
+                  >
+                    Edit
+                  </button>
+                  {/* Use a modal to show more details */}
+                  <button className="btn btn-info">View Details</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(task)}
+                  >
+                    Delete
+                  </button>
+                </>
+              )}
+            </StyledDiv>
+          ))
+          .reverse()}
       </div>
       <div style={{ width: 300, margin: 20 }}>
         <h3>Closed Tasks</h3>
-        {closedTasks.map((task, idx) => (
-          <StyledDiv>
-            <h6>Name: {task.personName}.</h6>
-            <h6>Pet: {task.animalName} </h6>
-            <h6>Contact: {task.contactInfo}</h6>
-            <h6>Status: {task.status}</h6>
-            <button className="btn btn-secondary">Edit</button>
-            {/* Use a modal to show more details */}
-            <button className="btn btn-info">View Details</button>
-          </StyledDiv>
-        ))}
+        {closedTasks
+          .map((task, idx) => (
+            <StyledDiv key={idx}>
+              {editDoneFormVisible ? (
+                <>
+                  <div>
+                    <EditTaskForm
+                      toggleForm={toggleEditDoneForm}
+                      task={task}
+                      update={updateTheTask}
+                      getData={getData}
+                      getPendingData={getPendingData}
+                      getCompletedData={getCompletedData}
+                      {...props}
+                    />
+                    <div>
+                      <button
+                        className="btn btn-secondary"
+                        onClick={toggleEditDoneForm}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h6>Name: {task.personName}.</h6>
+                  <h6>Pet: {task.animalName} </h6>
+                  <h6>Contact: {task.contactInfo}</h6>
+                  <h6>Status: {task.status}</h6>
+                  <button
+                    className="btn btn-secondary"
+                    onClick={toggleEditDoneForm}
+                  >
+                    Edit
+                  </button>
+                  {/* Use a modal to show more details */}
+                  <button className="btn btn-info">View Details</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(task)}
+                  >
+                    Delete
+                  </button>
+                </>
+              )}
+            </StyledDiv>
+          ))
+          .reverse()}
       </div>
     </div>
   );
