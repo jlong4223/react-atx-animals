@@ -56,7 +56,7 @@ const AdoptForm = (props) => {
               onChange={handleChange}
               value={formState.animalType}
             >
-              <option value="" disabled selected>
+              <option value="" disabled defaultValue>
                 Type of animal
               </option>
               <option>Cat</option>
@@ -108,7 +108,7 @@ const AdoptForm = (props) => {
               value={formState.typeOfResidence}
               name="typeOfResidence"
             >
-              <option value="" disabled selected>
+              <option value="" disabled defaultValue>
                 Type of Residence
               </option>
               <option>House</option>
