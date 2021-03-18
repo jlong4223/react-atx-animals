@@ -9,6 +9,7 @@ import {
 } from "../../services/TaskService";
 import "./Tasks.css";
 import EditTaskForm from "./EditTaskForm";
+import TasksModal from "./TasksModal";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -91,7 +92,6 @@ const Tasks = (props) => {
   }
   //   TODO move the mapping of each styled div to taskpage or move the content inside styled div to an even lower component?
   //   TODO figure out form toggle and why it toggles all of them
-  //   TODO add modal for details
   return (
     <div id="topDiv" style={{ display: "flex" }}>
       <div style={{ width: 300, margin: 20 }}>
@@ -130,8 +130,7 @@ const Tasks = (props) => {
                   <button className="btn btn-secondary" onClick={toggleForm}>
                     Edit
                   </button>
-
-                  <button className="btn btn-info">View Details</button>
+                  <TasksModal task={task} />
                   <button
                     className="btn btn-danger"
                     onClick={() => handleDelete(task)}
@@ -183,8 +182,7 @@ const Tasks = (props) => {
                   >
                     Edit
                   </button>
-                  {/* Use a modal to show more details */}
-                  <button className="btn btn-info">View Details</button>
+                  <TasksModal task={task} />
                   <button
                     className="btn btn-danger"
                     onClick={() => handleDelete(task)}
@@ -236,8 +234,7 @@ const Tasks = (props) => {
                   >
                     Edit
                   </button>
-                  {/* Use a modal to show more details */}
-                  <button className="btn btn-info">View Details</button>
+                  <TasksModal task={task} />
                   <button
                     className="btn btn-danger"
                     onClick={() => handleDelete(task)}

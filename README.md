@@ -15,6 +15,7 @@ This is an application that represents a mock animal shelter. There is an adopti
 - Node.js, MongoDB, Express.js API Backend
 - sheet.best API
 - Reactstrap
+- React Modal
 
 ### Future Enhancements
 
