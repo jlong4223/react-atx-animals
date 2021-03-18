@@ -11,7 +11,7 @@ const AdoptForm = (props) => {
     anyChildren: undefined,
     typeOfResidence: "",
     contactInfo: "",
-    status: "",
+    status: "open",
     employee: "",
   });
 
@@ -19,6 +19,7 @@ const AdoptForm = (props) => {
     e.preventDefault();
     try {
       await addTaskData(formState);
+      alert("Thank you - Our team will be in touch soon!");
       props.history.push("/");
     } catch (err) {
       console.log(err);
@@ -34,95 +35,107 @@ const AdoptForm = (props) => {
 
   return (
     <div>
-      {/* ----- Google Form attached to sheets: ------ */}
-      {/* <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLScDk-mwZQaYrJJqs3Oysw-TrOlf-cPTXt8BZVnuwjnD336EeQ/viewform?embedded=true"
-        width="800"
-        height="550"
-        frameBorder="0"
-        marginHeight="0"
-        marginWidth="0"
-      >
-        Loading…
-      </iframe> */}
-
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <legend>Adoption Form</legend>
           <fieldset style={{ display: "flex", flexDirection: "column" }}>
-            <select
-              className="form-control"
-              name="animalType"
-              onChange={handleChange}
-              value={formState.animalType}
-            >
-              <option value="" disabled selected>
-                Type of animal
-              </option>
-              <option>Cat</option>
-              <option>Dog</option>
-            </select>
-            <input
-              className="form-control"
-              type="text"
-              onChange={handleChange}
-              name="animalName"
-              placeholder="Animal Name"
-              value={formState.animalName}
-            />
-            <input
-              className="form-control"
-              type="text"
-              onChange={handleChange}
-              name="personName"
-              placeholder="Your Name"
-              value={formState.personName}
-            />
-            <input
-              className="form-control"
-              type="text"
-              onChange={handleChange}
-              name="address"
-              placeholder="Your Address"
-              value={formState.address}
-            />
-            <input
-              className="form-control"
-              type="number"
-              min="0"
-              onChange={handleChange}
-              name="currentPets"
-              value={formState.currentPets}
-            />
-            <input
-              className="form-control"
-              type="number"
-              min="0"
-              onChange={handleChange}
-              name="anyChildren"
-              value={formState.anyChildren}
-            />
-            <select
-              className="form-control"
-              onChange={handleChange}
-              value={formState.typeOfResidence}
-              name="typeOfResidence"
-            >
-              <option value="" disabled selected>
-                Type of Residence
-              </option>
-              <option>House</option>
-              <option>Apartment</option>
-              <option>Other</option>
-            </select>
-            <input
-              className="form-control"
-              type="text"
-              onChange={handleChange}
-              name="contactInfo"
-              placeholder="Phone or Email Info"
-              value={formState.contactInfo}
-            />
+            <label>
+              Which type of animal are you intersted in adopting?
+              <select
+                className="form-control"
+                name="animalType"
+                onChange={handleChange}
+                value={formState.animalType}
+              >
+                <option value="" disabled defaultValue>
+                  Type of animal
+                </option>
+                <option>Cat</option>
+                <option>Dog</option>
+              </select>
+            </label>
+            <label>
+              What is the animals name?
+              <input
+                className="form-control"
+                type="text"
+                onChange={handleChange}
+                name="animalName"
+                placeholder="Animal Name"
+                value={formState.animalName}
+              />
+            </label>
+            <label>
+              What is your name?
+              <input
+                className="form-control"
+                type="text"
+                onChange={handleChange}
+                name="personName"
+                placeholder="Your Name"
+                value={formState.personName}
+              />
+            </label>
+            <label>
+              What is your address?
+              <input
+                className="form-control"
+                type="text"
+                onChange={handleChange}
+                name="address"
+                placeholder="Your Address"
+                value={formState.address}
+              />
+            </label>
+            <label>
+              Do you currently have any pets? If so, how many?
+              <input
+                className="form-control"
+                type="number"
+                min="0"
+                onChange={handleChange}
+                name="currentPets"
+                value={formState.currentPets}
+              />
+            </label>
+            <label>
+              Do you have any children? If so, how many?
+              <input
+                className="form-control"
+                type="number"
+                min="0"
+                onChange={handleChange}
+                name="anyChildren"
+                value={formState.anyChildren}
+              />
+            </label>
+            <label>
+              What type of residence do you live in?
+              <select
+                className="form-control"
+                onChange={handleChange}
+                value={formState.typeOfResidence}
+                name="typeOfResidence"
+              >
+                <option value="" disabled defaultValue>
+                  Type of Residence
+                </option>
+                <option>House</option>
+                <option>Apartment</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              What is your best contact info?
+              <input
+                className="form-control"
+                type="text"
+                onChange={handleChange}
+                name="contactInfo"
+                placeholder="Phone or Email Info"
+                value={formState.contactInfo}
+              />
+            </label>
             <button
               className="btn btn-sm btn-primary"
               //   disabled={!formValid()}
