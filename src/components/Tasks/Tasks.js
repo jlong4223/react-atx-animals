@@ -5,12 +5,20 @@ import {
   fetchCompletedTasks,
   fetchPendingTasks,
 } from "../../services/TaskService";
+import "./Tasks.css";
 
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px 0;
+  padding: 10px;
+
+  button {
+    margin: 3px 0;
+  }
 `;
 
 const Tasks = (props) => {
@@ -50,7 +58,7 @@ const Tasks = (props) => {
   //   have a handleClick that changes the task status to pending and have a select on the task status area
 
   return (
-    <div style={{ display: "flex" }}>
+    <div id="topDiv" style={{ display: "flex" }}>
       <div style={{ width: 300, margin: 20 }}>
         <h3>Open Tasks</h3>
         {openTaskState
@@ -59,13 +67,10 @@ const Tasks = (props) => {
               <h6>Name: {task.personName}.</h6>
               <h6>Pet: {task.animalName} </h6>
               <h6>Contact: {task.contactInfo}</h6>
-              <h6>
-                Status:
-                {task.status === "" ? <p>Open</p> : <></>}
-              </h6>
+              <h6>Status: {task.status === "" ? <> Open</> : <></>}</h6>
               <button className="btn btn-secondary">Edit</button>
               {/* Use a modal to show more details */}
-              <button>View Details</button>
+              <button className="btn btn-info">View Details</button>
             </StyledDiv>
           ))
           .reverse()}
@@ -80,7 +85,7 @@ const Tasks = (props) => {
             <h6>Status: {task.status}</h6>
             <button className="btn btn-secondary">Edit</button>
             {/* Use a modal to show more details */}
-            <button>View Details</button>
+            <button className="btn btn-info">View Details</button>
           </StyledDiv>
         ))}
       </div>
@@ -94,7 +99,7 @@ const Tasks = (props) => {
             <h6>Status: {task.status}</h6>
             <button className="btn btn-secondary">Edit</button>
             {/* Use a modal to show more details */}
-            <button>View Details</button>
+            <button className="btn btn-info">View Details</button>
           </StyledDiv>
         ))}
       </div>
