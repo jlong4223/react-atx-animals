@@ -31,7 +31,7 @@ const App = (props) => {
   }
 
   return (
-    <div>
+    <div className="App">
       <Header logout={handleLogout} user={userState.user} />
       <Switch>
         <Route exact path="/" render={() => <HomePage {...props} />} />
@@ -79,7 +79,7 @@ const App = (props) => {
           path="/pets"
           render={() => <AnimalsPage user={userState.user} {...props} />}
         />
-        <Route exact path="/adopt" render={() => <AdoptPage />} />
+        <Route exact path="/adopt" render={() => <AdoptPage {...props} />} />
         <Route component={NotFound} />
       </Switch>
       <Footer />
