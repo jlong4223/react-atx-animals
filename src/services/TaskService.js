@@ -1,3 +1,4 @@
+import { getToken } from "./TokenService";
 const SHEETS_URL =
   "https://sheet.best/api/sheets/2c5cfdd0-92e1-42cb-89e7-79e7f1f5d577";
 
@@ -9,7 +10,6 @@ export function fetchTaskData() {
 }
 
 /* -------- Node/Mongo Task Form ---------- */
-// TODO make a update for each task status url
 export function addTaskData(task) {
   return fetch(BASE_URL + "tasks", {
     method: "POST",
@@ -27,7 +27,7 @@ export function deleteTask(task) {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
       // added authorization header to send the token with the req
-      // Authorization: "Bearer " + getToken(),
+      Authorization: "Bearer " + getToken(),
     },
   });
 }
@@ -40,17 +40,23 @@ export function editTask(event, task) {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
       // added authorization header to send the token with the req
-      // Authorization: "Bearer " + getToken(),
+      Authorization: "Bearer " + getToken(),
     },
   });
 }
 
 export function fetchOpenTasks() {
-  return fetch(BASE_URL + "tasks/open").then((res) => res.json());
+  return fetch(BASE_URL + "tasks/open", {
+    headers: { Authorization: "Bearer " + getToken() },
+  }).then((res) => res.json());
 }
 export function fetchCompletedTasks() {
-  return fetch(BASE_URL + "tasks/completed").then((res) => res.json());
+  return fetch(BASE_URL + "tasks/completed", {
+    headers: { Authorization: "Bearer " + getToken() },
+  }).then((res) => res.json());
 }
 export function fetchPendingTasks() {
-  return fetch(BASE_URL + "tasks/pending").then((res) => res.json());
+  return fetch(BASE_URL + "tasks/pending", {
+    headers: { Authorization: "Bearer " + getToken() },
+  }).then((res) => res.json());
 }
