@@ -9,7 +9,7 @@ export function fetchTaskData() {
 }
 
 /* -------- Node/Mongo Task Form ---------- */
-// TODO make a update/delete for each task status url
+// TODO make a update for each task status url
 export function addTaskData(task) {
   return fetch(BASE_URL + "tasks", {
     method: "POST",
@@ -23,6 +23,19 @@ export function addTaskData(task) {
 export function deleteTask(task) {
   return fetch(BASE_URL + `tasks/${task._id}`, {
     method: "DELETE",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+      // added authorization header to send the token with the req
+      // Authorization: "Bearer " + getToken(),
+    },
+  });
+}
+
+export function editTask(event, task) {
+  return fetch(BASE_URL + `tasks/${task._id}`, {
+    body: JSON.stringify(task),
+    method: "PUT",
     headers: {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
