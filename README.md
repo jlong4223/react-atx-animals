@@ -12,7 +12,8 @@ This is an application that represents a mock animal shelter. There is an adopti
 - React-Router
 - Google Forms
 - jsonwebtoken
-- Node.js, MongoDB, Express.js Backend
+- Node.js, MongoDB, Express.js API Backend
+- sheet.best API
 - Reactstrap
 
 ### Future Enhancements
