@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.signupfield {
+  height: 350px;
+  width: 320px;
+  border-radius: 5px;
+  box-shadow: 2px 1px 15px #798389;
+}
+
+.namebox,
+.emailbox,
+.keybox {
+  display: flex;
+  align-items: center;
+}
+
+.icons {
+  margin-right: 5px;
+}
+
+#link {
+  text-align: center;
+  margin-top: 10px;
+}
