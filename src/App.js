@@ -12,6 +12,7 @@ import AddPetPage from "./pages/AddPetPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AnimalsPage from "./pages/AnimalsPage/AnimalsPage";
 import TasksPage from "./pages/TasksPage";
+import PricesPage from "./pages/PricesPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
@@ -79,6 +80,7 @@ const App = (props) => {
           path="/pets"
           render={() => <AnimalsPage user={userState.user} {...props} />}
         />
+        <Route exact path="/prices" render={() => <PricesPage />} />
         <Route exact path="/adopt" render={() => <AdoptPage {...props} />} />
         <Route component={NotFound} />
       </Switch>

@@ -25,13 +25,13 @@ export default function HomePage() {
           >
             ADOPT AND GET BACK MORE THAN WHAT’S HUMANLY POSSIBLE
             <br />
-            <a href="/#link" style={{ color: "white" }}>
+            <a href="/#homec" style={{ color: "white" }}>
               <i class="fas fa-arrow-circle-down"></i>
             </a>
           </h1>
         </div>
       </main>
-      <main className="page">
+      <main id="homec" className="page">
         <HomeContents />
       </main>
     </>

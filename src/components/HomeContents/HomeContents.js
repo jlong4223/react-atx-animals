@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import images from "./HomeImages";
 
 const StyledMain = styled.main`
   display: flex;
@@ -27,25 +28,44 @@ const StyledMain = styled.main`
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
     transform: scale(1.1, 1.1);
   }
+  div h2,
+  a {
+    color: white;
+  }
 `;
 
 const HomeContents = (props) => {
   return (
     <StyledMain className="page">
       <Link to="/pets" id="link">
-        <div>
+        <div
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[4]})`,
+            backgroundSize: "cover",
+          }}
+        >
           <h2>Adopt A Pet</h2>
           <i className="fas fa-paw fa-3x"></i>
         </div>
       </Link>
       <Link>
-        <div>
+        <div
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[5]})`,
+            backgroundSize: "cover",
+          }}
+        >
           <h2>Donate </h2>
           <i className="fas fa-money-bill-wave fa-3x"></i>
         </div>
       </Link>
       <Link>
-        <div>
+        <div
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[6]})`,
+            backgroundSize: "cover",
+          }}
+        >
           <h2>Get Involved</h2>
           <i className="fas fa-hands-helping fa-3x"></i>
         </div>
