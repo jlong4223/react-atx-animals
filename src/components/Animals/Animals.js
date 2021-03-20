@@ -32,7 +32,7 @@ const Animals = (props) => {
           <h1>{animal.name}</h1>
           <p>{animal.bio}</p>
           <p>{animal.weight}&nbsp;lbs</p>
-          <img src={animal.picture} alt="pic" width="125" />
+          <img src={animal.picture} alt="pic" width="200" />
           <br />
           {/* onclick have a modal pop up with bio or all info outside of name, pic */}
           {props.user && props.user.admin === true ? (
