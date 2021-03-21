@@ -8,10 +8,10 @@ export default function HomePage() {
   });
 
   const changeBackground = () => {
-    setInterval(() => {
-      let changeImg = images[Math.floor(Math.random() * images.length)];
+    setInterval(async () => {
+      let changeImg = await images[Math.floor(Math.random() * images.length)];
       setBackgroundState({ background: changeImg });
-    }, 6000);
+    }, 8000);
   };
 
   useEffect(() => {
