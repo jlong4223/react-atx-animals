@@ -19,6 +19,5 @@ This is an application that represents a mock animal shelter. There is an adopti
 
 ### Future Enhancements
 
-- update mobile sizing styles
 - cloudinary to upload images
 - have uploaded img show before upload
