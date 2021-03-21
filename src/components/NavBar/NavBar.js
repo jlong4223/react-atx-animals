@@ -41,6 +41,7 @@ const NavBar = (props) => {
         <a
           href="https://www.austinpetsalive.org/about/our-story"
           target="_blank"
+          rel="noreferrer"
           className="navLink"
         >
           ABOUT US
@@ -73,6 +74,7 @@ const NavBar = (props) => {
         <a
           href="https://www.austinpetsalive.org/resources/adopter"
           target="_blank"
+          rel="noreferrer"
           className="navLink"
         >
           RESOURCES
