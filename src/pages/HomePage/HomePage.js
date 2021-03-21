@@ -1,11 +1,28 @@
+import { useState, useEffect } from "react";
 import HomeContents from "../../components/HomeContents/HomeContents";
 import images from "../../components/HomeContents/HomeImages";
 
 export default function HomePage() {
+  const [backgroundState, setBackgroundState] = useState({
+    background: images[1],
+  });
+
+  const changeBackground = () => {
+    setInterval(() => {
+      let changeImg = images[Math.floor(Math.random() * images.length)];
+      setBackgroundState({ background: changeImg });
+    }, 6000);
+  };
+
+  useEffect(() => {
+    changeBackground();
+  }, []);
+
   let style = {
     width: "100%",
     height: "75vh",
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[1]})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundState.background})`,
+    // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[1]})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     display: "flex",
