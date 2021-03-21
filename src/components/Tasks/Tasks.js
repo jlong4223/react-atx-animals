@@ -21,7 +21,9 @@ const StyledDiv = styled.div`
   padding: 10px;
 
   button {
-    margin: 3px 0;
+    margin: 3px 3px;
+    width: 30%;
+    height: 10%;
   }
 `;
 
@@ -126,17 +128,21 @@ const Tasks = (props) => {
                   <h6>Name: {task.personName}.</h6>
                   <h6>Pet: {task.animalName} </h6>
                   <h6>Contact: {task.contactInfo}</h6>
-                  <h6>Status: {task.status}</h6>
-                  <button className="btn btn-secondary" onClick={toggleForm}>
-                    Edit
-                  </button>
-                  <TasksModal task={task} />
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => handleDelete(task)}
-                  >
-                    Delete
-                  </button>
+                  <h6 style={{ backgroundColor: "green", color: "white" }}>
+                    Status: {task.status}
+                  </h6>
+                  <div>
+                    <button className="btn btn-secondary" onClick={toggleForm}>
+                      <i className="fas fa-edit fa-lg"></i>
+                    </button>
+                    <TasksModal task={task} />
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleDelete(task)}
+                    >
+                      <i className="fas fa-trash-alt fa-lg"></i>
+                    </button>
+                  </div>
                 </>
               )}
             </StyledDiv>
@@ -175,20 +181,24 @@ const Tasks = (props) => {
                   <h6>Name: {task.personName}.</h6>
                   <h6>Pet: {task.animalName} </h6>
                   <h6>Contact: {task.contactInfo}</h6>
-                  <h6>Status: {task.status}</h6>
-                  <button
-                    className="btn btn-secondary"
-                    onClick={togglePendingForm}
-                  >
-                    Edit
-                  </button>
-                  <TasksModal task={task} />
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => handleDelete(task)}
-                  >
-                    Delete
-                  </button>
+                  <h6 style={{ backgroundColor: "yellow" }}>
+                    Status: {task.status}
+                  </h6>
+                  <div>
+                    <button
+                      className="btn btn-secondary"
+                      onClick={togglePendingForm}
+                    >
+                      <i className="fas fa-edit fa-lg"></i>
+                    </button>
+                    <TasksModal task={task} />
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleDelete(task)}
+                    >
+                      <i className="fas fa-trash-alt fa-lg"></i>
+                    </button>
+                  </div>
                 </>
               )}
             </StyledDiv>
@@ -227,20 +237,24 @@ const Tasks = (props) => {
                   <h6>Name: {task.personName}.</h6>
                   <h6>Pet: {task.animalName} </h6>
                   <h6>Contact: {task.contactInfo}</h6>
-                  <h6>Status: {task.status}</h6>
-                  <button
-                    className="btn btn-secondary"
-                    onClick={toggleEditDoneForm}
-                  >
-                    Edit
-                  </button>
-                  <TasksModal task={task} />
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => handleDelete(task)}
-                  >
-                    Delete
-                  </button>
+                  <h6 style={{ backgroundColor: "red", color: "white" }}>
+                    Status: {task.status}
+                  </h6>
+                  <div>
+                    <button
+                      className="btn btn-secondary"
+                      onClick={toggleEditDoneForm}
+                    >
+                      <i className="fas fa-edit fa-lg"></i>
+                    </button>
+                    <TasksModal task={task} />
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleDelete(task)}
+                    >
+                      <i className="fas fa-trash-alt fa-lg"></i>
+                    </button>
+                  </div>
                 </>
               )}
             </StyledDiv>

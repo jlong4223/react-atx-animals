@@ -26,13 +26,13 @@ const TasksModal = (props) => {
   }
 
   return (
-    <div>
+    <>
       <button
-        style={{ width: "100%" }}
+        // style={{ width: "100%", height: "56%" }}
         className="btn btn-info"
         onClick={changeModal}
       >
-        View Details
+        <i className="fas fa-info-circle fa-lg"></i>
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -54,7 +54,7 @@ const TasksModal = (props) => {
           close
         </button>
       </Modal>
-    </div>
+    </>
   );
 };
 

@@ -159,7 +159,7 @@ const EditTaskForm = (props) => {
               <option>completed</option>
             </select>
 
-            <button className="btn btn-sm btn-primary">Submit Form</button>
+            <button className="btn btn-primary">Update</button>
           </fieldset>
         </div>
       </form>
