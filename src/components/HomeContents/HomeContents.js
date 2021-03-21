@@ -40,7 +40,7 @@ const HomeContents = (props) => {
       <Link to="/pets" id="link">
         <div
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[4]})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[3]})`,
             backgroundSize: "cover",
           }}
         >
@@ -51,7 +51,7 @@ const HomeContents = (props) => {
       <a href="https://www.austinpetsalive.org/donate" target="_blank">
         <div
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[5]})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[4]})`,
             backgroundSize: "cover",
           }}
         >
@@ -62,7 +62,7 @@ const HomeContents = (props) => {
       <a href="https://www.austinpetsalive.org/volunteer" target="_blank">
         <div
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[6]})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[5]})`,
             backgroundSize: "cover",
           }}
         >
