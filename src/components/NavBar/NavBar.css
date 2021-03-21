@@ -37,3 +37,24 @@
   width: 100%;
   z-index: 99;
 }
+
+@media screen and (max-width: 900px) {
+  #innerHeader {
+    height: 100px;
+    flex-wrap: wrap;
+  }
+  .sticky-wrapper {
+    width: 100%;
+  }
+  /* .sticky .sticky-inner {
+    width: 100%;
+  } */
+  .navLink {
+    width: 38%;
+    /* border: 1px solid red; */
+    font-size: 10px;
+  }
+  .dropdown nav-item {
+    width: 35%;
+  }
+}

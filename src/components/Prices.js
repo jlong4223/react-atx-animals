@@ -12,6 +12,18 @@ const StyledDiv = styled.div`
     flex-direction: column;
     justify-content: center;
   }
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+
+    h4 {
+      font-size: 19px;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
 `;
 
 export default function Prices() {
