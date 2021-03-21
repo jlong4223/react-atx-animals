@@ -48,7 +48,7 @@ const HomeContents = (props) => {
           <i className="fas fa-paw fa-3x"></i>
         </div>
       </Link>
-      <Link>
+      <a href="https://www.austinpetsalive.org/donate" target="_blank">
         <div
           style={{
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[5]})`,
@@ -58,8 +58,8 @@ const HomeContents = (props) => {
           <h2>Donate </h2>
           <i className="fas fa-money-bill-wave fa-3x"></i>
         </div>
-      </Link>
-      <Link>
+      </a>
+      <a href="https://www.austinpetsalive.org/volunteer" target="_blank">
         <div
           style={{
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${images[6]})`,
@@ -69,7 +69,7 @@ const HomeContents = (props) => {
           <h2>Get Involved</h2>
           <i className="fas fa-hands-helping fa-3x"></i>
         </div>
-      </Link>
+      </a>
     </StyledMain>
   );
 };
