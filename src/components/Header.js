@@ -35,6 +35,20 @@ const StyledHeader = styled.header`
     height: 50px;
     /* border: 1px solid red; */
   }
+  @media screen and (max-width: 900px) {
+    #links {
+      flex-direction: row;
+      align-items: flex-start;
+      font-size: 13px;
+    }
+    #logo {
+      width: 100px;
+      margin: 0;
+    }
+    #topIcons {
+      width: 300px;
+    }
+  }
 `;
 
 const Header = (props) => {
