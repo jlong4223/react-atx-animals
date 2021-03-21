@@ -1,5 +1,12 @@
 import { useState } from "react";
 import { addTaskData } from "./../services/TaskService";
+import styled from "styled-components";
+
+const StyledLabel = styled.label`
+  margin: 15px 0;
+  width: 90vw;
+  font-size: 18px;
+`;
 
 const AdoptForm = (props) => {
   const [formState, setFormState] = useState({
@@ -34,12 +41,17 @@ const AdoptForm = (props) => {
   }
 
   return (
-    <div>
+    <div style={{ marginTop: "30px" }}>
       <form onSubmit={handleSubmit}>
+        <h1 style={{ textAlign: "center" }}>Adoption Form</h1>
         <div className="form-group">
-          <legend>Adoption Form</legend>
-          <fieldset style={{ display: "flex", flexDirection: "column" }}>
-            <label>
+          <fieldset
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <StyledLabel>
               Which type of animal are you intersted in adopting?
               <select
                 className="form-control"
@@ -53,8 +65,8 @@ const AdoptForm = (props) => {
                 <option>Cat</option>
                 <option>Dog</option>
               </select>
-            </label>
-            <label>
+            </StyledLabel>
+            <StyledLabel>
               What is the animals name?
               <input
                 className="form-control"
@@ -64,8 +76,8 @@ const AdoptForm = (props) => {
                 placeholder="Animal Name"
                 value={formState.animalName}
               />
-            </label>
-            <label>
+            </StyledLabel>
+            <StyledLabel>
               What is your name?
               <input
                 className="form-control"
@@ -75,8 +87,8 @@ const AdoptForm = (props) => {
                 placeholder="Your Name"
                 value={formState.personName}
               />
-            </label>
-            <label>
+            </StyledLabel>
+            <StyledLabel>
               What is your address?
               <input
                 className="form-control"
@@ -86,8 +98,8 @@ const AdoptForm = (props) => {
                 placeholder="Your Address"
                 value={formState.address}
               />
-            </label>
-            <label>
+            </StyledLabel>
+            <StyledLabel>
               Do you currently have any pets? If so, how many?
               <input
                 className="form-control"
@@ -97,8 +109,8 @@ const AdoptForm = (props) => {
                 name="currentPets"
                 value={formState.currentPets}
               />
-            </label>
-            <label>
+            </StyledLabel>
+            <StyledLabel>
               Do you have any children? If so, how many?
               <input
                 className="form-control"
@@ -108,8 +120,8 @@ const AdoptForm = (props) => {
                 name="anyChildren"
                 value={formState.anyChildren}
               />
-            </label>
-            <label>
+            </StyledLabel>
+            <StyledLabel>
               What type of residence do you live in?
               <select
                 className="form-control"
@@ -124,8 +136,8 @@ const AdoptForm = (props) => {
                 <option>Apartment</option>
                 <option>Other</option>
               </select>
-            </label>
-            <label>
+            </StyledLabel>
+            <StyledLabel>
               What is your best contact info?
               <input
                 className="form-control"
@@ -135,13 +147,8 @@ const AdoptForm = (props) => {
                 placeholder="Phone or Email Info"
                 value={formState.contactInfo}
               />
-            </label>
-            <button
-              className="btn btn-sm btn-primary"
-              //   disabled={!formValid()}
-            >
-              Submit Form
-            </button>
+            </StyledLabel>
+            <button className="btn btn-sm btn-primary">Submit Form</button>
           </fieldset>
         </div>
       </form>
