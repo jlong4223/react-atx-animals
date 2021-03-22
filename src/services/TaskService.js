@@ -2,7 +2,8 @@ import { getToken } from "./TokenService";
 const SHEETS_URL =
   "https://sheet.best/api/sheets/2c5cfdd0-92e1-42cb-89e7-79e7f1f5d577";
 
-const BASE_URL = "http://localhost:3001/";
+// const BASE_URL = "http://localhost:3001/";
+const BASE_URL = "https://atx-animals-api.herokuapp.com/";
 
 // Google Sheets fetch
 export function fetchTaskData() {

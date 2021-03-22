@@ -1,5 +1,6 @@
 import { getToken } from "./TokenService";
-const BASE_URL = "http://localhost:3001/";
+// const BASE_URL = "http://localhost:3001/";
+const BASE_URL = "https://atx-animals-api.herokuapp.com/";
 
 export function fetchAnimalData() {
   return fetch(BASE_URL + "animals").then((res) => res.json());
