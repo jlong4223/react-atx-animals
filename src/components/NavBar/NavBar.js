@@ -38,14 +38,9 @@ const NavBar = (props) => {
   return (
     <header className={`sticky-wrapper${isSticky ? " sticky" : ""}`} ref={ref}>
       <header id="innerHeader" className="sticky-inner">
-        <a
-          href="https://www.austinpetsalive.org/about/our-story"
-          target="_blank"
-          rel="noreferrer"
-          className="navLink"
-        >
+        <Link className="navLink" to="/about">
           ABOUT US
-        </a>
+        </Link>
 
         {/* reactstate drop down components */}
         <Nav pills>

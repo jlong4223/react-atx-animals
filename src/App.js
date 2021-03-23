@@ -1,8 +1,9 @@
+/* ------------ Hooks & Services ---------- */
 import { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { getUser, logout } from "./services/UserService";
 
-// pages and components
+/* --------- pages and components ---------*/
 import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -13,11 +14,13 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import AnimalsPage from "./pages/AnimalsPage/AnimalsPage";
 import TasksPage from "./pages/TasksPage";
 import PricesPage from "./pages/PricesPage";
+import AboutUsPage from "./pages/AboutUsPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 
 const App = (props) => {
+  /* ------------ User State and service methods ----------- */
   const [userState, setUserState] = useState({ user: getUser() });
 
   function handleRegisterOrLogin() {
@@ -80,6 +83,7 @@ const App = (props) => {
           path="/pets"
           render={() => <AnimalsPage user={userState.user} {...props} />}
         />
+        <Route exact path="/about" render={() => <AboutUsPage />} />
         <Route exact path="/prices" render={() => <PricesPage />} />
         <Route exact path="/adopt" render={() => <AdoptPage {...props} />} />
         <Route component={NotFound} />
