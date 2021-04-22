@@ -21,6 +21,11 @@ This is an application that represents a mock animal shelter. There is an adopti
 
 [Click](https://atx-animals.herokuapp.com/) to see the final app!
 
+#### Admin Test Login:
+
+- Username: jared@jared.com
+- password: jared
+
 ### Screenshots:
 
 ##### Landing Page with logged in employee navbar:
