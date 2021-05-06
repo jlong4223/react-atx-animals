@@ -6,7 +6,6 @@ import {
   editAnimal,
 } from "../../services/PetService";
 import Animals from "../../components/Animals/Animals";
-import "./AnimalsPage.css";
 
 const AnimalsPage = (props) => {
   const [animalState, setAnimalState] = useState([
@@ -21,6 +20,8 @@ const AnimalsPage = (props) => {
       picture: "",
     },
   ]);
+
+  const styles = pageStyles();
 
   async function getData() {
     const data = await fetchAnimalData();
@@ -54,16 +55,16 @@ const AnimalsPage = (props) => {
   }
 
   return (
-    <div id="animal-page">
-      <h1>Adopt A Pet</h1>
-      <div className="container" id="adoptDets">
+    <div style={styles.animalPage}>
+      <h1 style={styles.h1}>Adopt A Pet</h1>
+      <div className="container" style={styles.adoptPets}>
         <h3>
           Sometimes you don’t know true love until it licks you in the face 🐶  
         </h3>
         <h6>Thank you for considering adopting!</h6>
         <p>
           1. Fill out an{" "}
-          <Link id="adoptionLink" to="/adopt">
+          <Link style={styles.adoptionLink} to="/adopt">
             Adoption Form
           </Link>
         </p>
@@ -74,7 +75,7 @@ const AnimalsPage = (props) => {
         </p>
         <p>3. If you have any questions please call 111.111.1111</p>
       </div>
-      <div id="animals-cards">
+      <div style={styles.animalsCard}>
         {animalState.map((animal, idx) => (
           <Animals
             {...props}
@@ -91,3 +92,30 @@ const AnimalsPage = (props) => {
 };
 
 export default AnimalsPage;
+
+function pageStyles() {
+  return {
+    animalPage: {
+      backgroundColor: "#f5f5f5",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    h1: {
+      margin: "30px 0",
+    },
+    animalsCard: {
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+    },
+    adoptionLink: {
+      borderBottom: "1px solid black",
+    },
+    adoptPets: {
+      display: "flex",
+      flexDirection: "column",
+    },
+  };
+}
