@@ -16,6 +16,8 @@ This is an application that represents a mock animal shelter. There is an adopti
 - sheet.best API
 - Reactstrap
 - React Modal
+- ESLint
+- PropTypes
 
 ### Deployed App:
 
