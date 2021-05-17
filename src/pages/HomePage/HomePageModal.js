@@ -38,6 +38,6 @@ const HomePageModal = ({ modalState, closeModal }) => {
 export default HomePageModal;
 
 HomePageModal.propTypes = {
-  modalState: Boolean,
-  closeModal: Function,
+  modalState: PropTypes.Boolean,
+  closeModal: PropTypes.Function,
 };
