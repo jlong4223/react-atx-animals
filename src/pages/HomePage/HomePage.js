@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 import HomeContents from "../../components/HomeContents/HomeContents";
+import HomePageModal from "./HomePageModal";
 import images from "../../components/HomeContents/HomeImages";
 
 export default function HomePage() {
   const [backgroundState, setBackgroundState] = useState({
     background: images[1],
   });
+
+  const [modalState, setIsModalState] = useState(true);
+
+  const closeModal = () => {
+    setIsModalState();
+  };
 
   const changeBackground = () => {
     setInterval(async () => {
@@ -51,6 +58,7 @@ export default function HomePage() {
       <main id="homec" className="page">
         <HomeContents />
       </main>
+      <HomePageModal modalState={modalState} closeModal={closeModal} />
     </>
   );
 }
